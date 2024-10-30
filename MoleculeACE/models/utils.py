@@ -24,20 +24,19 @@ from numpy.typing import ArrayLike
 from torch.utils.data import Dataset
 import os
 import pickle
-
+import traceback
 
 smiles_encoding = get_config(CONFIG_PATH_SMILES)
 
 
-class GNN:
+class GNN: #graph neural network
     """ Base GNN class that takes care of training, testing, predicting for all graph-based methods """
     def __init__(self):
-        self.train_losses = []
+        self.train_losses = [] #lista pra armazenar as perdas de treinamento e validação ao longo das épocas
         self.val_losses = []
         self.epoch = 0
-        self.epochs = 100
-        self.save_path = os.path.join('.', 'best_model.pkl')
-
+        self.epochs = 2 #número de épocas para o treinamento
+        self.save_path = os.path.join('.', 'best_model.pkl') # onde o modelo é salvo para melhor checkpoint
         self.model = None
         self.device = None
         self.loss_fn = None
@@ -45,9 +44,9 @@ class GNN:
 
 
     def train(self, x_train: List[Data], y_train: List[float], x_val: List[Data] = None, y_val: List[float] = None,
-              early_stopping_patience: int = None, epochs: int = None, print_every_n: int = 100):
+              early_stopping_patience: int = 2, epochs: int = 2, print_every_n: int = 100):
+        
         """ Train a graph neural network.
-
         :param x_train: (List[Data]) a list of graph objects for training
         :param y_train: (List[float]) a list of bioactivites for training
         :param x_val: (List[Data]) a list of graph objects for validation
@@ -55,6 +54,7 @@ class GNN:
         :param epochs: (int) train the model for n epochs
         :param print_every_n: (int) printout training progress every n epochs
         """
+        print("train called from:\n", traceback.format_stack())
         if epochs is None:
             epochs = self.epochs
         train_loader = graphs_to_loader(x_train, y_train)
@@ -63,6 +63,7 @@ class GNN:
         for epoch in range(epochs):
 
             # If we reached the end of our patience, load the best model and stop training
+            print(patience,early_stopping_patience)
             if patience is not None and early_stopping_patience is not None and patience >= early_stopping_patience:
 
 
@@ -188,7 +189,7 @@ class NN:
         self.train_losses = []
         self.val_losses = []
         self.epoch = 0
-        self.epochs = 100
+        self.epochs = 10
         self.save_path = os.path.join('.', 'best_model.pkl')
 
         self.model = None
@@ -207,7 +208,8 @@ class NN:
         for epoch in range(epochs):
 
             # If we reached the end of our patience, load the best model and stop training
-            if patience is not None and patience >= early_stopping_patience:
+            if patience is not None and early_stopping_patience is not None and patience >= early_stopping_patience:
+
 
                 if print_every_n < epochs:
                     print('Stopping training early')

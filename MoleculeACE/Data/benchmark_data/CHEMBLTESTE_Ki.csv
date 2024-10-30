@@ -1,0 +1,20 @@
+smiles,exp_mean [nM],y,cliff_mol,split
+CC(=N)N1CCC(Oc2ccc3nc(CCC(=O)O)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,2670.0,-3.4265112613645754,1,test
+CC(=N)N1CCC(Oc2ccc3c(c2)nc(C(C)C)n3Cc2ccc3ccc(C(=N)N)cc3c2)CC1,870.0,-2.9395192526186187,1,train
+CCC(C)c1nc2cc(OC3CCN(C(C)=N)CC3)ccc2n1Cc1ccc2ccc(C(=N)N)cc2c1,2300.0,-3.361727836017593,1,test
+COC(=O)C(C)CN(c1ccc2c(c1)nc(C)n2Cc1ccc2ccc(C(=N)N)cc2c1)C1CCN(C(C)=N)CC1,5000.0,-3.6989700043360187,0,train
+CCCCc1nc2cc(OC3CCN(C(C)=N)CC3)ccc2n1Cc1ccc2ccc(C(=N)N)cc2c1,2000.0,-3.3010299956639813,1,train
+COC(=O)CCCN(c1ccc2c(c1)nc(C)n2Cc1ccc2ccc(C(=N)N)cc2c1)C1CCN(C(C)=N)CC1,6000.0,-3.778151250383644,0,test
+Cc1ccc(C)c(CNC(=O)[C@@H]2CCCN2C(=O)C(N)C(c2ccccc2)c2ccccc2)c1,40.0,-1.6020599913279625,0,train
+CC(=N)N1CCC(N(CC(N)=O)c2ccc3nc(C)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,490.0,-2.690196080028514,1,train
+Nc1cc[n+](Cc2ccc(OC(CCc3ccccc3)c3ccccc3)cc2)cc1,160.0,-2.204119982655925,0,train
+CC(=N)N1CCC(N(CCCC(=O)O)c2ccc3nc(C)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,5000.0,-3.6989700043360187,1,train
+c1ccc(COc2ccc(CCNc3ccncc3)cc2)cc1,7900.0,-3.8976270912904414,0,train
+CCCCc1nc2ccc(OC3CCN(C(C)=N)CC3)cc2n1Cc1ccc2ccc(C(=N)N)cc2c1,230.0,-2.361727836017593,1,train
+c1ccc(COc2ccc(CNc3ccncc3)cc2)cc1,4700.0,-3.6720978579357175,0,test
+COC(=O)CCCN(c1ccc2nc(C)n(Cc3ccc4ccc(C(=N)N)cc4c3)c2c1)C1CCN(C(C)=N)CC1,4610.0,-3.663700925389648,1,test
+COC(=O)C(C)CN(c1ccc2nc(C)n(Cc3ccc4ccc(C(=N)N)cc4c3)c2c1)C1CCN(C(C)=N)CC1,300.0,-2.4771212547196626,1,train
+CC(=N)N1CCC(N(CCCC(=O)O)c2ccc3c(c2)nc(C)n3Cc2ccc3ccc(C(=N)N)cc3c2)CC1,5000.0,-3.6989700043360187,0,train
+CCCc1nc2cc(OC3CCN(C(C)=N)CC3)ccc2n1Cc1ccc2ccc(C(=N)N)cc2c1,2400.0,-3.380211241711606,1,train
+COC(=O)CN(c1ccc2c(c1)nc(C)n2Cc1ccc2ccc(C(=N)N)cc2c1)C1CCN(C(C)=N)CC1,2700.0,-3.4313637641589874,0,test
+CC(=N)N1CCC(Oc2ccc3nc(CCC(N)=O)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,590.0,-2.7708520116421442,1,train

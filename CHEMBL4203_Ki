@@ -1,0 +1,11 @@
+smiles,exp_mean [nM],y,cliff_mol,split
+CC(=N)N1CCC(Oc2ccc3nc(CCC(=O)O)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,2670.0,-3.4265112613645754,1,test
+CC(=N)N1CCC(Oc2ccc3c(c2)nc(C(C)C)n3Cc2ccc3ccc(C(=N)N)cc3c2)CC1,870.0,-2.9395192526186187,1,train
+CCC(C)c1nc2cc(OC3CCN(C(C)=N)CC3)ccc2n1Cc1ccc2ccc(C(=N)N)cc2c1,2300.0,-3.361727836017593,1,test
+COC(=O)C(C)CN(c1ccc2c(c1)nc(C)n2Cc1ccc2ccc(C(=N)N)cc2c1)C1CCN(C(C)=N)CC1,5000.0,-3.6989700043360187,0,train
+CCCCc1nc2cc(OC3CCN(C(C)=N)CC3)ccc2n1Cc1ccc2ccc(C(=N)N)cc2c1,2000.0,-3.3010299956639813,1,train
+COC(=O)CCCN(c1ccc2c(c1)nc(C)n2Cc1ccc2ccc(C(=N)N)cc2c1)C1CCN(C(C)=N)CC1,6000.0,-3.778151250383644,0,test
+Cc1ccc(C)c(CNC(=O)[C@@H]2CCCN2C(=O)C(N)C(c2ccccc2)c2ccccc2)c1,40.0,-1.6020599913279625,0,train
+CC(=N)N1CCC(N(CC(N)=O)c2ccc3nc(C)n(Cc4ccc5ccc(C(=N)N)cc5c4)c3c2)CC1,490.0,-2.690196080028514,1,train
+Nc1cc[n+](Cc2ccc(OC(CCc3ccccc3)c3ccccc3)cc2)cc1,160.0,-2.204119982655925,0,train
+

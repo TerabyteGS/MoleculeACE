@@ -1,6 +1,6 @@
 from MoleculeACE import MPNN, Data, Descriptors, calc_rmse, calc_cliff_rmse, get_benchmark_config
 
-dataset = 'CHEMBL2034_Ki'
+dataset = 'CHEMBL4203_Ki'
 descriptor = Descriptors.GRAPH
 algorithm = MPNN
 
