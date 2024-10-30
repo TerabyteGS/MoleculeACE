@@ -1,0 +1,3 @@
+pip install rdkit-pypi pandas numpy pandas chembl_webresource_client scikit-learn matplotlib tqdm python-Levenshtein
+
+clonar repositório, basta dar right click na pasta, abrir o git bash e rodar git clone "http..url.git"

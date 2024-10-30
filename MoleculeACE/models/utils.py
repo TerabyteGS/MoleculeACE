@@ -63,7 +63,8 @@ class GNN:
         for epoch in range(epochs):
 
             # If we reached the end of our patience, load the best model and stop training
-            if patience is not None and patience >= early_stopping_patience:
+            if patience is not None and early_stopping_patience is not None and patience >= early_stopping_patience:
+
 
                 if print_every_n < epochs:
                     print('Stopping training early')
