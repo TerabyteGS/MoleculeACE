@@ -55,6 +55,7 @@ class Data:
         if type(file) is str:
             if file in datasets:
                 file = os.path.join(DATA_PATH, f"{file}.csv")
+                print(file)
             df = pd.read_csv(file)
         else:
             df = file
