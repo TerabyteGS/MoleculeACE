@@ -63,46 +63,48 @@ class GNN: #graph neural network
     #alterei esse def
     def train(self, x_train: List[Data], y_train: List[float], x_val: List[Data] = None, y_val: List[float] = None,
           early_stopping_patience: int = None, epochs: int = None, print_every_n: int = 100):
-      if epochs is None:
-          epochs = self.epochs
-      train_loader = graphs_to_loader(x_train, y_train)
-      patience = 0  # Sempre inicializa como 0
+    if epochs is None:
+        epochs = self.epochs
+    train_loader = graphs_to_loader(x_train, y_train)
+    patience = 0  # Sempre inicializa como 0
 
-      for epoch in range(epochs):
-          # Se a paciência máxima for atingida, pare o treinamento
-          if early_stopping_patience is not None and patience >= early_stopping_patience:
-              if print_every_n < epochs:
-                  print('Stopping training early')
-              try:
-                  with open(self.save_path, 'rb') as handle:
-                      self.model = pickle.load(handle)
-                  os.remove(self.save_path)
-              except Warning:
-                  print('Could not load best model, keeping the current weights instead')
-              break
+    for epoch in range(epochs):
+        # Se a paciência máxima for atingida, pare o treinamento
+        if early_stopping_patience is not None and patience >= early_stopping_patience:
+            if print_every_n < epochs:
+                print('Stopping training early')
+            try:
+                with open(self.save_path, 'rb') as handle:
+                    self.model = pickle.load(handle)
+                os.remove(self.save_path)
+            except Warning:
+                print('Could not load best model, keeping the current weights instead')
+            break
 
-          # Continue o treinamento enquanto o modelo estiver melhorando
-          else:
-              loss = self._one_epoch(train_loader)
-              self.train_losses.append(loss)
+        # Continue o treinamento enquanto o modelo estiver melhorando
+        else:
+            loss = self._one_epoch(train_loader)
+            self.train_losses.append(loss)
 
-              val_loss = 0
-              if x_val is not None:
-                  val_pred = self.predict(x_val)
-                  val_loss = self.loss_fn(squeeze_if_needed(val_pred), torch.tensor(y_val))
-              self.val_losses.append(val_loss)
+            val_loss = 0
+            if x_val is not None:
+                val_pred = self.predict(x_val)
+                val_loss = self.loss_fn(squeeze_if_needed(val_pred), torch.tensor(y_val))
+            self.val_losses.append(val_loss)
 
-              self.epoch += 1
+            self.epoch += 1
 
-              # Salvar o modelo se for o melhor até agora
-              if val_loss <= min(self.val_losses):
-                  with open(self.save_path, 'wb') as handle:
-                      pickle.dump(self.model, handle, protocol=pickle.HIGHEST_PROTOCOL)
-                  patience = 0  # Reseta paciência
-              else:
-                  patience += 1  # Incrementa paciência
+            # Salvar o modelo se for o melhor até agora
+            if val_loss <= min(self.val_losses):
+                with open(self.save_path, 'wb') as handle:
+                    pickle.dump(self.model, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                patience = 0  # Reseta paciência
+            else:
+                patience += 1  # Incrementa paciência
 
-              if self.epoch % print_every_n == 0:
+            if self.epoch % print_every_n == 0:
+                print(f"Epoch {self.epoch} | Train Loss {loss} | Val Loss {val_loss}")
+
                  
 
     def _one_epoch(self, train_loader):
